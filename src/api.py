@@ -11,12 +11,14 @@ load_dotenv()
 
 
 class API(ABC):
+    """Абстрактный класс для получения данных через API"""
     @abstractmethod
     def get_data(self) -> list[dict]:
         pass
 
 
 class HeadHunterAPI(API):
+    """Класс для получения данных с hh.ru через API"""
     def __init__(self, query: str) -> None:
         self.query = query
         self.params = {
@@ -30,6 +32,7 @@ class HeadHunterAPI(API):
 
 
 class SuperJobAPI(API):
+    """Класс для получения данных с superjob.ru через API"""
     def __init__(self, query: str) -> None:
         self.query = query
         self.params = {
