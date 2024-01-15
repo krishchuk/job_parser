@@ -41,7 +41,7 @@ class Vacancy:
         elif self.salary_from == 0 and self.salary_to == 0:
             return 0
 
-    def write_to_dict(self):
+    def write_to_dict(self) -> dict:
         return {
             "vacancy_name": self.vacancy_name,
             "salary_from": self.salary_from,
@@ -74,7 +74,7 @@ class HeadHunterVacancy(Vacancy):
     def __str__(self):
         return f"Вакансия на HeadHunter {self.str}"
 
-    def write_to_dict(self):
+    def write_to_dict(self) -> dict:
         vacancy_dict = super().write_to_dict()
         vacancy_dict["platform"] = self.platform_name
         return vacancy_dict
@@ -87,7 +87,7 @@ class SuperJobVacancy(Vacancy):
     def __str__(self):
         return f"Вакансия на SuperJob {self.str}"
 
-    def write_to_dict(self):
+    def write_to_dict(self) -> dict:
         vacancy_dict = super().write_to_dict()
         vacancy_dict["platform"] = self.platform_name
         return vacancy_dict
