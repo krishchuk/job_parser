@@ -29,3 +29,17 @@ def create_sj_instances(vacancies: list[dict]) -> list[Vacancy]:
         )
         all_vacancies.append(sj_vacancy)
     return all_vacancies
+
+
+def sort_by_salary(vacancies: list[Vacancy]) -> list[Vacancy]:
+    return sorted(vacancies, reverse=True)
+
+
+def convert_to_instance(vacancies: list[dict]) -> list[Vacancy]:
+    instances = []
+    for vacancy in vacancies:
+        if vacancy["platform"] == "HH":
+            instances.append(HeadHunterVacancy(**vacancy))
+        elif vacancy["platform"] == "SJ":
+            instances.append(SuperJobVacancy(**vacancy))
+    return instances
