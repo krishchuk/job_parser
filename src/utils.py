@@ -26,7 +26,7 @@ def create_hh_instances(vacancies: list[dict]) -> list[Vacancy]:
             salary_to=salary_to,
             currency=currency,
             town=town,
-            url=vacancy["url"]
+            url=vacancy["alternate_url"]
         )
         all_vacancies.append(hh_vacancy)
     return all_vacancies
