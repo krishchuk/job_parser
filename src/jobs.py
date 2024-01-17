@@ -54,9 +54,13 @@ class Vacancy:
     @staticmethod
     def validate_salary(salary) -> int:
         """Возвращает 0, если зарплата не указана"""
-        if salary is None:
+        try:
+            if salary is None:
+                return 0
+        except TypeError:
             return 0
-        return salary
+        else:
+            return salary
 
     @staticmethod
     def validate_currency(currency) -> str:
