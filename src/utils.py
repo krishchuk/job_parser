@@ -59,7 +59,21 @@ def convert_to_instance(vacancies: list[dict]) -> list[Vacancy]:
     instances = []
     for vacancy in vacancies:
         if vacancy["platform"] == "HH":
-            instances.append(HeadHunterVacancy(**vacancy))
+            instances.append(HeadHunterVacancy(
+                vacancy_name=vacancy["vacancy_name"],
+                salary_from=vacancy["salary_from"],
+                salary_to=vacancy["salary_to"],
+                currency=vacancy["currency"],
+                town=vacancy["town"],
+                url=vacancy["url"]
+            ))
         elif vacancy["platform"] == "SJ":
-            instances.append(SuperJobVacancy(**vacancy))
+            instances.append(SuperJobVacancy(
+                vacancy_name=vacancy["vacancy_name"],
+                salary_from=vacancy["salary_from"],
+                salary_to=vacancy["salary_to"],
+                currency=vacancy["currency"],
+                town=vacancy["town"],
+                url=vacancy["url"]
+            ))
     return instances
