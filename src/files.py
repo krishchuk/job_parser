@@ -29,7 +29,7 @@ class FileSaver(ABC):
 
     def write_json(self, vacancies: list) -> None:
         with open(self.path, "w", encoding="utf-8") as file:
-            json.dump(vacancies, file)
+            json.dump(vacancies, file, ensure_ascii=False, indent=4)
 
 
 class FileSaverJSON(FileSaver):
